@@ -134,6 +134,8 @@ vector<string> Pathfinder::solveMaze()
 	//BASE CASES if you are out side of the maze, if you hit a wall. If x y z has been visited return empty. 
 	//helper path could have 6 functions, N/S/W/E pathes as well as UP and DOWN.
 
+	//added comment
+
 
 	return vector<string>();
 }
