@@ -1,0 +1,3 @@
+﻿  Pathfinder.cpp
+C:\Users\justi\source\repos\Lab4Maze\Lab4Maze\Pathfinder.cpp(13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Lab4Maze.vcxproj -> C:\Users\justi\source\repos\Lab4Maze\Debug\Lab4Maze.exe
