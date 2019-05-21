@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <ctime>
+#include <set>
 
 using namespace std;
 
@@ -94,13 +95,6 @@ void Pathfinder::createRandomMaze()
 
 bool Pathfinder::importMaze(string file_name)
 {
-	// It does not matter how you loop or what you use in your arrays as long as you are consistent.
-
-	//*Reads in a maze from a file with the given file nameand stores it as the current maze.
-	//* Does nothing if the file does not exist or if the file's data does not represent a valid
-	//* maze.
-	
-//FIXME make a helper function that determines if the maze is valid. 
 
 	vector<string> mazeData = validMaze(file_name);
 	if (mazeData.empty()) 
@@ -126,7 +120,8 @@ bool Pathfinder::importMaze(string file_name)
 
 vector<string> Pathfinder::solveMaze()
 {
-	;
+	vector<string> solvablePath;
+	set<string> visited;
 	//use a helperfunction to make it recursive. 
 	//private function vector<string> findPath (what to remember across recursive calls.)  Remeber the PATH ... WHERE YOU HAVE VISTED ... X, Y, Z...
 	// call maze{x (x+1) (x-1)} maze {y (y+1) (y-1)} etc. 
@@ -134,7 +129,8 @@ vector<string> Pathfinder::solveMaze()
 	//BASE CASES if you are out side of the maze, if you hit a wall. If x y z has been visited return empty. 
 	//helper path could have 6 functions, N/S/W/E pathes as well as UP and DOWN.
 
-	//added comment
+	findPath(solvablePath, visited, 0, 0, 0);
+	
 
 
 	return vector<string>();
@@ -176,4 +172,44 @@ vector<string> Pathfinder::validMaze(string file_name)
 	input.close();
 
 	return mazeData;
+}
+
+vector<string> Pathfinder::findPath(vector<string> path, set<string>& visted, int depth, int row, int column)
+{
+	ostringstream currentLocation;
+	currentLocation << "(" << column << ", " << row << ", " << depth << ")";
+	string here = currentLocation.str();
+
+	if (depth > 4 || row > 4 || column > 4 || depth < 0 || row < 0 || column < 0)
+	{
+		path.clear();
+		return path;
+	}
+
+	if (visted.count(here) == 1)
+	{
+		path.clear();
+		return path;
+	}
+	else
+	{
+		visted.insert(here);
+	}
+
+	if (currentMaze[column][row][depth] == "0")
+	{
+		path.clear();
+		return path;
+	}
+
+	if (depth == 4 && row == 4 && column == 4)
+	{
+		return path;
+	}
+
+
+
+	
+
+	return vector<string>();
 }

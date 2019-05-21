@@ -2,6 +2,7 @@
 #include "PathfinderInterface.h"
 #include <vector>
 #include <string>
+#include <set>
 
 using namespace std;
 
@@ -19,5 +20,6 @@ public:
 
 private:
 	string currentMaze[5][5][5];
+	vector<string> findPath(vector<string> path, set<string>& visted, int depth, int row, int column);
 };
 
