@@ -128,12 +128,12 @@ vector<string> Pathfinder::solveMaze()
 
 	//BASE CASES if you are out side of the maze, if you hit a wall. If x y z has been visited return empty. 
 	//helper path could have 6 functions, N/S/W/E pathes as well as UP and DOWN.
-
-	findPath(solvablePath, visited, 0, 0, 0);
+	path.clear();
+	findPath(visited, 0, 0, 0);
 	
 
 
-	return vector<string>();
+	return path;
 }
 
 vector<string> Pathfinder::validMaze(string file_name)
@@ -174,42 +174,53 @@ vector<string> Pathfinder::validMaze(string file_name)
 	return mazeData;
 }
 
-vector<string> Pathfinder::findPath(vector<string> path, set<string>& visted, int depth, int row, int column)
+bool Pathfinder::findPath(set<string>& visited, int depth, int row, int column)
 {
 	ostringstream currentLocation;
 	currentLocation << "(" << column << ", " << row << ", " << depth << ")";
 	string here = currentLocation.str();
+	path.push_back(here);
 
 	if (depth > 4 || row > 4 || column > 4 || depth < 0 || row < 0 || column < 0)
 	{
-		path.clear();
-		return path;
+		path.pop_back();
+		return false;
 	}
 
-	if (visted.count(here) == 1)
+	if (visited.count(here) == 1)
 	{
-		path.clear();
-		return path;
+		path.pop_back();
+		return false;
 	}
 	else
 	{
-		visted.insert(here);
+		visited.insert(here);
 	}
 
 	if (currentMaze[column][row][depth] == "0")
 	{
-		path.clear();
-		return path;
+		path.pop_back();
+		return false;
 	}
 
 	if (depth == 4 && row == 4 && column == 4)
 	{
-		return path;
+		return true;
 	}
 
-
-
-	
-
-	return vector<string>();
+	if (
+		(findPath(visited, depth - 1, row, column)) ||
+		(findPath(visited, depth + 1, row, column)) ||
+		(findPath(visited, depth, row - 1, column)) ||
+		(findPath(visited, depth, row + 1, column)) ||
+		(findPath(visited, depth, row, column - 1)) ||
+		(findPath(visited, depth, row, column + 1)))
+	{
+		return true;
+	}
+	else
+	{
+		path.pop_back();
+		return false;
+	}
 }

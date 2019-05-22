@@ -1,7 +1,3 @@
 ﻿  Pathfinder.cpp
 C:\Users\justi\source\repos\Lab4Maze\Lab4Maze\Pathfinder.cpp(14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Source.cpp
-C:\Users\justi\source\repos\Lab4Maze\Lab4Maze\Source.cpp(142): warning C4018: '<': signed/unsigned mismatch
-C:\Users\justi\source\repos\Lab4Maze\Lab4Maze\Source.cpp(153): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
   Lab4Maze.vcxproj -> C:\Users\justi\source\repos\Lab4Maze\Debug\Lab4Maze.exe
