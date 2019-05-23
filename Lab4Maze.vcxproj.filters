@@ -99,5 +99,20 @@
     <Text Include="WindowsEndlines\key_file4.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="out_file1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="out_file2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="out_file3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="out_file4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="out_file5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

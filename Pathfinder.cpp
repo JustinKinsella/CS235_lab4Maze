@@ -163,10 +163,15 @@ vector<string> Pathfinder::validMaze(string file_name)
 		return mazeData;
 	}
 
-	if (mazeData.at(0) != "1" && mazeData.at(125) != "1")
+	if ((mazeData.at(0) != "1"))
 	{
 		mazeData.clear();
 		return mazeData;
+	}
+	if(mazeData.at(124) != "1")
+	{
+	mazeData.clear();
+	return mazeData;
 	}
 
 	input.close();

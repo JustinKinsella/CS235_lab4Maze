@@ -150,6 +150,11 @@
     <Text Include="Mazes\Unsolvable1.txt" />
     <Text Include="Mazes\Unsolvable2.txt" />
     <Text Include="Mazes\Unsolvable3.txt" />
+    <Text Include="out_file1.txt" />
+    <Text Include="out_file2.txt" />
+    <Text Include="out_file3.txt" />
+    <Text Include="out_file4.txt" />
+    <Text Include="out_file5.txt" />
     <Text Include="WindowsEndlines\key_file1.txt" />
     <Text Include="WindowsEndlines\key_file2.txt" />
     <Text Include="WindowsEndlines\key_file3.txt" />
